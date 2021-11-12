@@ -12,7 +12,7 @@ export class HomePage {
   users: any;
 
   constructor(private httpclient: HttpClient) {
-    this.users = this.httpclient.get('https://randomuser.me/api/?results=20').pipe(map(res => res['results']));
+    this.users = this.httpclient.get('https://raw.githubusercontent.com/jd-f/1.11T-Aplicaci-n-responsive-personalizada/main/src/MOCK_DATA.json');
   }
 
 }

@@ -7,19 +7,17 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <io-grid>
+  <ion-grid>
     <ion-row>
       <ion-col *ngFor="let user of users | async" size-xl="2" size-lg="2" size-md="4" size-sm="6" size-xs="12">
         <ion-card>
           <ion-avatar>
-            <img [src]="user.picture.medium">
+            <img [src]='user.Abatar'>
           </ion-avatar>
-          <h1>{{user.name.first}} {{user.name.last}}</h1>
-          <ioncard-content>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
-          </ioncard-content>
+          <h1>{{user.first_name}} {{user.last_name}}</h1>
+          
         </ion-card>
       </ion-col>
     </ion-row>
-  </io-grid>
+  </ion-grid>
 </ion-content>
