@@ -7,17 +7,26 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <ion-input [(ngModel)]="filtro" placeholder="Introduce los datos del filtro">
+  </ion-input>
   <ion-grid>
     <ion-row>
-      <ion-col *ngFor="let user of users | async" size-xl="2" size-lg="2" size-md="4" size-sm="6" size-xs="12">
-        <ion-card>
-          <ion-avatar>
-            <img [src]='user.Abatar'>
-          </ion-avatar>
-          <h1>{{user.first_name}} {{user.last_name}}</h1>
-          
-        </ion-card>
-      </ion-col>
+      <ng-container *ngFor="let user of users | async">
+        <ion-col *ngIf="filtro==' ' || filtro==user.gender" size-xl="2" size-lg="2" size-md="4" size-sm="6" size-xs="12">
+          <ion-card>
+            <ion-avatar>
+              <img [src]='user.Abatar'>
+            </ion-avatar>
+            <h1>{{user.first_name}} {{user.last_name}}</h1>
+            <b>{{user.gender}}</b>
+            <p>Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del
+              texto de un sitio mientras que mira su diseño. El punto de usar Lorem Ipsum es que tiene una
+                distribución más o menos normal de las letras, al contrario de usar textos como por ejemplo 
+                "Contenido aquí, contenido aquí". Estos textos hacen parecerlo un español que se puede leer. 
+            </p>
+          </ion-card>
+        </ion-col>
+      </ng-container>
     </ion-row>
   </ion-grid>
 </ion-content>
